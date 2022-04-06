@@ -1,6 +1,11 @@
 
 export type Task = {
     title:string,
-    column:string
-    id?:number
+    column:string,
+    date:string,
+    id?:number,
+}
+
+export type ID = {
+    id:string
 }

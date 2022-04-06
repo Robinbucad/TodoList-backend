@@ -10,6 +10,8 @@ const client = new MongoClient(URI)
 const DATABASE_NAME = 'todolist'
 const COLLECTION_NAME = 'todo'
 
+
+
 export const retrieveToDoTask = async()=> {
     try{
         await client.connect()
@@ -33,5 +35,37 @@ export const createToDoTask = async (task:Task) => {
 
     }catch(err){
         console.error('Create task to do error', err)
+    }
+}
+
+export const getTaskById = async(id:string) => {
+    try{    
+        await client.connect()
+        const db = client.db(DATABASE_NAME)
+        const taskCol = db.collection(COLLECTION_NAME)
+        const query = {
+            id: Number(id)
+        }    
+       console.log(query)
+        return taskCol.findOne(query,{})
+    
+    }catch(err){
+        console.error("Get task by ID error", err)
+    }
+}
+
+export const deleteTask = async(id:string) => {
+    try{    
+        await client.connect()
+        const db = client.db(DATABASE_NAME)
+        const taskCol = db.collection(COLLECTION_NAME)
+
+        const query = {
+            id: Number(id)
+        }
+        return taskCol.deleteOne(query)
+
+    }catch(err){
+        console.error("Delete task error:", err)
     }
 }

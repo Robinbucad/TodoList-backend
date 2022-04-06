@@ -1,10 +1,14 @@
 import express from 'express'
-import { getToDoCtrl,postTaskToDoCtrl } from './todo.controller'
+import { getTaskByIdCtrl, getToDoCtrl,postTaskToDoCtrl, deleteTaskCtrl } from './todo.controller'
 
 const router = express.Router()
 
 router.route('/')  
         .get(getToDoCtrl)
         .post(postTaskToDoCtrl)
+
+router.route('/:id')
+        .get(getTaskByIdCtrl)
+        .delete(deleteTaskCtrl)
 
 export default router
