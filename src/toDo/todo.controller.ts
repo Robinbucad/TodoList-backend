@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { Task } from "../type"
-import { createToDoTask, deleteTask, getTaskById, retrieveToDoTask } from "./todo.model"
+import { createToDoTask, deleteTask, getTaskById, retrieveToDoTask, updateOneTask } from "./todo.model"
 
 
 export const getToDoCtrl = async(req:Request, res:Response) => {
@@ -41,4 +41,13 @@ export const deleteTaskCtrl = async(req:Request, res:Response) => {
     }else{
         res.sendStatus(404)
     }
+}
+
+export const updateTaskCtrl = async(req:Request, res:Response) => {
+    const {id} = req.params
+    const titleNew = {
+        title:req.body.title
+    }
+    const updatedTask = await updateOneTask(id,titleNew)
+    res.json(updatedTask)
 }

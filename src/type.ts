@@ -6,6 +6,6 @@ export type Task = {
     id?:number,
 }
 
-export type ID = {
-    id:string
+export type Title = {
+    title:string
 }

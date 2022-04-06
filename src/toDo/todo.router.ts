@@ -1,5 +1,5 @@
 import express from 'express'
-import { getTaskByIdCtrl, getToDoCtrl,postTaskToDoCtrl, deleteTaskCtrl } from './todo.controller'
+import { getTaskByIdCtrl, getToDoCtrl,postTaskToDoCtrl, deleteTaskCtrl,updateTaskCtrl } from './todo.controller'
 
 const router = express.Router()
 
@@ -10,5 +10,6 @@ router.route('/')
 router.route('/:id')
         .get(getTaskByIdCtrl)
         .delete(deleteTaskCtrl)
+        .patch(updateTaskCtrl)
 
 export default router
