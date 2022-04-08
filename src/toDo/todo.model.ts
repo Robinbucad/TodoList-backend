@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb"
-import { Task, Title } from "../type"
+import { Status, Task, Title } from "../type"
 import * as dotenv from 'dotenv';
 dotenv.config();
 const pass = process.env.MPASS
@@ -83,5 +83,21 @@ export const updateOneTask = async(id:string, title:Title) => {
         return taskTitle
     }catch(err){
         console.error("Error on edit the task", err)
+    }
+}
+
+export const updateStatusTask = async(id:string, status:Status) => {
+    try{
+        await client.connect()
+        const db = client.db(DATABASE_NAME)
+        const taskCol = db.collection(COLLECTION_NAME)
+        const query = {
+            id:Number(id)
+        }
+
+        const taskStatus = await taskCol.updateOne(query, {$set:status})
+        return taskStatus
+    }catch(err){
+        console.error("Can not change status", err)
     }
 }

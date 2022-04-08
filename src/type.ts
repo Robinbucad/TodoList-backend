@@ -1,11 +1,16 @@
 
 export type Task = {
     title:string,
-    column:string,
+    status:string,
     date:string,
+    column:string
     id?:number,
 }
 
 export type Title = {
     title:string
+}
+
+export type Status = {
+    status:string
 }

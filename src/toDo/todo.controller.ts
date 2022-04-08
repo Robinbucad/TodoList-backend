@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { Task } from "../type"
-import { createToDoTask, deleteTask, getTaskById, retrieveToDoTask, updateOneTask } from "./todo.model"
+import { createToDoTask, deleteTask, getTaskById, retrieveToDoTask, updateOneTask, updateStatusTask } from "./todo.model"
 
 
 export const getToDoCtrl = async(req:Request, res:Response) => {
@@ -13,9 +13,10 @@ export const postTaskToDoCtrl = async (req:Request<{}>, res:Response) => {
   
     const Task:Task = {
         title:req.body.title,
-        column:req.body.column,
+        status:req.body.status,
         id: req.body.id ,
-        date:req.body.date
+        date:req.body.date,
+        column:req.body.column
     }
   
     await createToDoTask(Task)
@@ -51,3 +52,13 @@ export const updateTaskCtrl = async(req:Request, res:Response) => {
     const updatedTask = await updateOneTask(id,titleNew)
     res.json(updatedTask)
 }
+
+export const updateStatusCtrl = async(req:Request, res:Response) => {
+    const {id} = req.params
+    const newStatus = {
+        status:req.body.status,
+        column:req.body.column
+    }
+    const updatedStatus = await updateStatusTask(id,newStatus)
+    res.json(updatedStatus)
+    }
