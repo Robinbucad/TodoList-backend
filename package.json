@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node src/app.ts",
     "build": "tsc",
     "dev": "ts-node-dev src/app.ts"
   },
