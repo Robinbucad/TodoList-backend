@@ -7,7 +7,9 @@
   "scripts": {
     "start": "ts-node-dev src/app.ts",
     "build": "tsc",
-    "dev": "ts-node-dev src/app.ts"
+    "dev": "ts-node-dev src/app.ts",
+    "test": "jest",
+    "test:watch": "npm run test:watch -- --coverage --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -21,9 +23,14 @@
     "express": "^4.17.3",
     "mongodb": "^4.5.0",
     "nodemon": "^2.0.15",
+    "run": "^1.4.0",
+    "supertest": "^6.2.2",
+    "test": "^0.6.0",
     "ts-node-dev": "^1.1.8"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
     "eslint": "^7.32.0",
@@ -31,7 +38,9 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
+    "jest": "^27.5.1",
     "prettier": "^2.6.2",
+    "ts-jest": "^27.1.4",
     "typescript": "^4.6.3"
   }
 }

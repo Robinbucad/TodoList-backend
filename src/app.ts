@@ -4,7 +4,7 @@ import cors from 'cors'
 import toDoRoute from './toDo/todo.router'
 
 
-const app = express();
+export const app = express();
 const port = process.env.PORT || 4000;
 
 
