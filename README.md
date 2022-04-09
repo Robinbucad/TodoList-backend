@@ -22,6 +22,7 @@ The main purpose of this repository is to create a backend using TypeScript with
 # Testing
 
 To test the backend I used the Jest and Supertest libraries, helping me with the TypeScript types and the coverage obtained is the following:
+
 ![testBack](https://user-images.githubusercontent.com/97446310/162550825-f526fed3-1db1-4692-9035-5e0df13af97b.PNG)
 
 # Deployment
