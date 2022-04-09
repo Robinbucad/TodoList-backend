@@ -1,4 +1,5 @@
 
+
 export type Task = {
     title:string,
     status:string,
@@ -12,5 +13,10 @@ export type Title = {
 }
 
 export type Status = {
-    status:string
+    status: 'Pending' | 'In progress' | 'Done'
+    column: 'To Do' | 'Done'
 }
+
+// Tests types
+
+export type Res  =  200 | 404 | number 
